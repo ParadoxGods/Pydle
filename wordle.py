@@ -57,8 +57,7 @@ def wordle():
         kp = jcop.find('p') + 1
         kl = jcop.find('l') + 1
         km = jcop.find('m') + 1
-        print("Letters Used:\n", jcop[0:kp]+jcop[kp:kl]+jcop[kl:km])
-        print(jcop)
+        print("Letters Used:\n", jcop)
         reg = False
         while reg == False:
             guess = input("Guess the 5 letter word:")
