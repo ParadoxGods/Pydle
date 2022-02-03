@@ -19,7 +19,6 @@ class fg:
 def token():
     ans1 = input("Insert another token?:")
     ans1 = ans1.lower()
-    ans1 = list(ans1)
     if ans1[0] == "y":
         wordle()
     elif ans1[0] == "n":
@@ -55,10 +54,11 @@ def wordle():
             print("Word Contains:",pR1)
         print("Current result:", bA)
         jcop = '|'.join(j)
-        kp = jcop.find('p')
-        kl = jcop.find('l')
-        km = jcop.find('m')
-        print("Letters Used:\n", jcop)
+        kp = jcop.find('p') + 1
+        kl = jcop.find('l') + 1
+        km = jcop.find('m') + 1
+        print("Letters Used:\n", jcop[0:kp]+jcop[kp:kl]+jcop[kl:km])
+        print(jcop)
         reg = False
         while reg == False:
             guess = input("Guess the 5 letter word:")
@@ -92,7 +92,7 @@ def wordle():
              strikeChar = l.index(i1)
              if l[strikeChar] not in pR1:
                  oR = ""
-                 oR += fg.orange + l[strikeChar]
+                 oR += fg.red + l[strikeChar]
                  oR += fg.reset
                  j[strikeChar] = oR
         for ind, index in enumerate(cA):
@@ -101,7 +101,6 @@ def wordle():
         varRound+=1
         x+=1
         if x == 5:
-            print("You did not guess the word in time, the word was:", gen)
+            print("You did not guess the word in time, the word was:", gen.title())
             token()
 token()
-
